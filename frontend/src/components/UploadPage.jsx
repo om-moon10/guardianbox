@@ -310,7 +310,7 @@ export default function UploadPage() {
         <span>🧬 PBKDF2-SHA256</span>
         <span>🚫 Zero-Knowledge</span>
         <span>🌐 Client-Side Only</span>
-        <a href="https://github/om-moon10"><span>👾 GitHub om-moon10</span> </a>
+        <a href="https://github.com/om-moon10"><span>👾 GitHub om-moon10</span> </a>
       </div>
     </div>
   );
