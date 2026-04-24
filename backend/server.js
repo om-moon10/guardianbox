@@ -41,9 +41,10 @@ app.use(helmet({
 // ── CORS ──────────────────────────────────────────────────────────────────────
 // In production: replace '*' with your actual frontend domain
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "http://localhost:3000",
-  methods: ["GET", "POST", "DELETE"],
-  allowedHeaders: ["Content-Type"],
+  origin: [
+    "http://localhost:3000",
+    "https://guardianbox.vercel.app"
+  ]
 }));
 
 // ── Body parsers ──────────────────────────────────────────────────────────────
