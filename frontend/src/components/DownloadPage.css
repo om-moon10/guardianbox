@@ -1,0 +1,154 @@
+/* DownloadPage.css */
+
+.download-page {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  justify-content: center;
+}
+
+.download-card {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.lock-icon { font-size: 40px; }
+
+.download-card h2 {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.download-sub {
+  color: var(--text-2);
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 380px;
+}
+
+.download-sub em { color: var(--accent); font-style: normal; }
+
+/* ── Metadata Box ──────────────────────────────────────────────────────────── */
+.meta-box {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.meta-row:last-child { border-bottom: none; }
+
+.meta-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meta-value {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-1);
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ── Field Group ───────────────────────────────────────────────────────────── */
+.download-card .field-group {
+  width: 100%;
+  text-align: left;
+}
+
+.download-card label {
+  margin-bottom: 6px;
+  display: block;
+  text-align: left;
+}
+
+/* ── Auto decrypt notice ───────────────────────────────────────────────────── */
+.auto-decrypt-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.auto-decrypt-notice p {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+/* ── Progress label ────────────────────────────────────────────────────────── */
+.progress-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+/* ── Status Cards ──────────────────────────────────────────────────────────── */
+.status-card {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.status-icon { font-size: 48px; }
+
+.status-card h2 {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.status-card p { color: var(--text-2); font-size: 14px; max-width: 360px; }
+
+.status-card.success { border-color: rgba(46,213,115,0.25); }
+.status-card.expired { border-color: rgba(255,71,87,0.25); }
+
+.security-note {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent) !important;
+}
+
+/* ── Download card btn ─────────────────────────────────────────────────────── */
+.download-card .btn-primary { margin-top: 4px; }
+
+/* ── Error Box ─────────────────────────────────────────────────────────────── */
+.download-card .error-box { width: 100%; text-align: left; }
