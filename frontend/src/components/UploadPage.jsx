@@ -73,21 +73,17 @@ export default function UploadPage() {
       let ciphertext, iv, salt, shareKey;
 
       if (usePassword) {
-        // Password mode: derive key from password; server gets NO key info
         const result = await encryptFileWithPassword(file, password);
         ciphertext   = result.ciphertext;
         iv           = result.iv;
         salt         = result.salt;
-        // shareKey will be embedded in URL hash (just the base64 salt+iv hint)
-        // The REAL secret is the user's password — they must share it separately
       } else {
-        // Keyless mode: generate a random key; embed it in URL hash
         const { key, rawKey } = await generateShareableKey();
         const result = await encryptFile(file, key);
         ciphertext   = result.ciphertext;
         iv           = result.iv;
         salt         = null;
-        shareKey     = rawKey; // goes into URL hash
+        shareKey     = rawKey; 
       }
 
       setProgress(50);
@@ -97,7 +93,6 @@ export default function UploadPage() {
 
       const formData = new FormData();
 
-      // Ciphertext as a Blob (binary)
       formData.append("file",     new Blob([ciphertext], { type: "application/octet-stream" }));
       formData.append("iv",       bytesToBase64(iv));
       formData.append("filename", file.name);
@@ -123,13 +118,11 @@ export default function UploadPage() {
       setProgress(90);
 
       // ── Step 4: Build share URL ─────────────────────────────────────────────
-      // Key ONLY goes in the URL hash — never in the path or query string.
-      // Browsers do NOT send the hash to the server.
       let hash = "";
       if (!usePassword && shareKey) {
         hash = `#key:${bytesToBase64(shareKey)}`;
       }
-      // Password-mode: hash is empty; user shares password separately (more secure)
+
 
       const url = `${window.location.origin}/file/${id}${hash}`;
       setShareURL(url);
@@ -163,7 +156,7 @@ export default function UploadPage() {
   if (status === "done") {
     return (
       <div className="upload-success">
-        <div className="success-icon">🔐</div>
+        <div className="success-icon">🔒</div>
         <h2>File Encrypted & Uploaded</h2>
         <p className="success-sub">
           Your file was encrypted <strong>in your browser</strong> before leaving your device.
@@ -317,6 +310,7 @@ export default function UploadPage() {
         <span>🧬 PBKDF2-SHA256</span>
         <span>🚫 Zero-Knowledge</span>
         <span>🌐 Client-Side Only</span>
+        <a href="https://github/om-moon10"><span>👾 GitHub om-moon10</span> </a>
       </div>
     </div>
   );
