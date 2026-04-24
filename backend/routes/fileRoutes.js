@@ -37,7 +37,10 @@ const upload = multer({
 //   salt      (base64, only in password mode)
 //   expiry    (seconds)
 //   maxDownloads (optional integer)
-router.post("/upload", uploadFile);
+router.post("/upload", upload.single("file"), (req, res, next) => {
+  console.log("UPLOAD ROUTE HIT"); // optional debug
+  next();
+}, uploadFile);
 
 // ── GET /api/file/:id/meta ────────────────────────────────────────────────────
 // Returns public metadata (no ciphertext) so UI can display file info

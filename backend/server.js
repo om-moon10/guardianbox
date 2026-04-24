@@ -54,6 +54,10 @@ app.use(express.json({ limit: "1mb" }));  // For JSON bodies
 // ── Routes ───────────────────────────────────────────────────────────────────
 app.use("/api", fileRoutes);
 
+app.listen(4000, () => {
+  console.log("Server running...");
+});
+
 // ── Health check ─────────────────────────────────────────────────────────────
 app.get("/health", (req, res) => {
   res.json({ status: "ok", service: "GuardianBox", timestamp: new Date().toISOString() });
