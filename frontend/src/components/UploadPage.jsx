@@ -19,7 +19,7 @@ import {
 } from "../utils/cryptoUtils";
 import "./UploadPage.css";
 
-const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:4000";
+const API_BASE = process.env.REACT_APP_API_URL || "https://guardianbox-backend-fxtn.onrender.com";
 
 const EXPIRY_OPTIONS = [
   { value: 60, label: "1 Minute (Test)" },
