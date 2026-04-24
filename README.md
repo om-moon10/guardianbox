@@ -4,6 +4,11 @@ A **zero-knowledge** file sharing system. Files are encrypted entirely in the br
 before being uploaded. The server stores only unreadable ciphertext and **never** sees
 your files, passwords, or encryption keys.
 
+## 🌐 Live Demo
+
+* 🔗 Frontend: https://guardianbox.vercel.app
+* 🔗 Backend API: https://guardianbox-backend-fxtn.onrender.com
+
 ---
 
 ##  Security Architecture
@@ -265,6 +270,38 @@ await s3.send(new PutObjectCommand({ Bucket, Key: id, Body: ciphertext }));
    file encrypted twice produces different ciphertext.
 
 ---
+
+---
+
+
+
+---
+
+## 📸 Screenshots
+
+### Upload Page
+
+![Upload](./screenshots/upload.png)
+
+### Shareable Link
+
+![Link](./screenshots/share-link.png)
+
+### Download Page
+
+![Download](./screenshots/download.png)
+
+### Successful Decryption
+
+![Success](./screenshots/success.png)
+
+### Encrypted File in S3 (Proof of Security)
+
+![S3](./screenshots/s3-encrypted.png)
+
+---
+
+
 ---
 
 ##  Security Audit
